@@ -6,7 +6,7 @@ import java.lang.NumberFormatException
 
 fun main() {
     println("início main")
-    val entrada: String = "3,1"
+    val entrada: String = "3.1"
     var valorRecebido: Double? =  try {
         entrada.toDouble()
     }catch (e: NumberFormatException){
@@ -14,9 +14,21 @@ fun main() {
         e.printStackTrace()
         null
     }
-    println("recebido o valor: ${valorRecebido}")
+
+    val valorComTaxa: Double? = if (valorRecebido != null){
+        valorRecebido +0.1
+    }else{
+        null
+    }
+
+    if (valorComTaxa != null){
+        println("recebido o valor com taxa: ${valorComTaxa}")
+    }else{
+        println("valor invalido")
+    }
+
     funcao1()
-    println("fim main") 
+    println("fim main")
 }
 
 fun funcao1(){
