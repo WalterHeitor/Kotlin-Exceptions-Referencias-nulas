@@ -2,14 +2,19 @@ package Alura
 
 import Alura.cliente.Endereco
 import java.lang.ArithmeticException
+import java.lang.NumberFormatException
 
 fun main() {
     println("início main")
-    try {
-        10/0
-    }catch (e: ArithmeticException){
-        println("ArithmeticException foi pegada")
+    val entrada: String = "3,1"
+    var valorRecebido: Double? =  try {
+        entrada.toDouble()
+    }catch (e: NumberFormatException){
+        println("problema na converçao")
+        e.printStackTrace()
+        null
     }
+    println("recebido o valor: ${valorRecebido}")
     funcao1()
     println("fim main")
 }
@@ -20,9 +25,6 @@ fun funcao1(){
         funcao2()
     }catch (e: ClassCastException){
         e.printStackTrace()
-        println(e.message)
-        println(e.stackTrace)
-        println(e.cause)
         println("ClassCastException foi pegada")
 }
     println("fim funcao1")
