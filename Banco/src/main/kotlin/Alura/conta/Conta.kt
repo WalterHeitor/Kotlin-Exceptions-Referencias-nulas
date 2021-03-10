@@ -1,8 +1,7 @@
 package Alura.conta
 
 import Alura.cliente.Cliente
-
-
+import Alura.exceptions.SaldoInsuficienteException
 
 
 /**
@@ -14,13 +13,16 @@ abstract class Conta(
 ) {
     var saldo = 0.0
         protected set
-    companion object Contador{
+
+    companion object Contador {
         var total = 0
             private set
-        fun incrementa(){
+
+        fun incrementa() {
             total++
         }
     }
+
     init {
         println("Criando conta")
         total++
@@ -32,14 +34,14 @@ abstract class Conta(
 
     abstract fun saca(valor: Double)
 
-    fun tranfere(valor: Double, destino: Conta): Boolean {
-        if (saldo >= valor) {
-            saldo -= valor
-            destino.deposita(valor)
-            return true
+    fun tranfere(valor: Double, destino: Conta) {
+        if (saldo < valor) {
+            throw SaldoInsuficienteException()
         }
-        return false
+        saldo -= valor
+        destino.deposita(valor)
     }
+
 }
 
 /**
