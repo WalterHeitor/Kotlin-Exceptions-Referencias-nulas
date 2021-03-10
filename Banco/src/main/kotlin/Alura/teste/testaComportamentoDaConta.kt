@@ -1,5 +1,4 @@
 import Alura.cliente.Cliente
-import Alura.conta.Conta
 import Alura.conta.ContaCorrente
 import Alura.conta.ContaPoupanca
 import Alura.exceptions.FalhaAutenticacaoException
@@ -32,17 +31,19 @@ fun testaComportamentoDaConta() {
     println("conta maria valor ${contaMaria.saldo}")
 
     try {
-        contaMaria.tranfere(valor = 704.04,destino= contaWalter, "123")
+        contaMaria.tranfere(valor = 704.04, destino = contaWalter, "123")
         println("Tranferencia sucedida!")
         println("conta o valor: ${contaWalter.saldo}")
     }catch (e: SaldoInsuficienteException){
-        println("Falha na ranferencia!")
+        println("Falha na Tranferencia!")
         println("Saldo Insuficiente")
         e.printStackTrace()
     }catch (e: FalhaAutenticacaoException){
         println("Falha na Trnsferencia")
         println("Falha na autenticação")
         e.printStackTrace()
+    }catch (e: Exception){
+        println("Erro desconhecido")
     }
 
 }
