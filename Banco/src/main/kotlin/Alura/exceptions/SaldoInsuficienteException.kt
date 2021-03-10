@@ -1,4 +1,6 @@
 package Alura.exceptions
 
-class SaldoInsuficienteException : Exception("Saldo e insufiente!") {
+class SaldoInsuficienteException(
+    mensagem: String = "Saldo e insufiente!"
+) : Exception(mensagem) {
 }
