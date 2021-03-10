@@ -19,10 +19,11 @@ fun funcao1(){
     try {
         funcao2()
     }catch (e: ClassCastException){
-    println(e.message)
-    println(e.stackTrace)
-    println(e.cause)
-    println("ClassCastException foi pegada")
+        e.printStackTrace()
+        println(e.message)
+        println(e.stackTrace)
+        println(e.cause)
+        println("ClassCastException foi pegada")
 }
     println("fim funcao1")
 }
