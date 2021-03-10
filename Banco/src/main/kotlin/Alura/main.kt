@@ -1,10 +1,12 @@
 package Alura
 
 import Alura.exceptions.SaldoInsuficienteException
+import Alura.teste.testaContasdiferentes
 import testaComportamentoDaConta
 
 fun main() {
     testaComportamentoDaConta()
+    //testaContasdiferentes()
 //    println("início main")
 //
 //
